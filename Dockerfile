@@ -1,7 +1,7 @@
 
 FROM quay.vapo.va.gov/vapo_tst_images/ubi8
 
-RUN yum install -y nano && yum clean all
+RUN yum install -y nano wget && yum clean all
 
 RUN yum install -y java-11-openjdk-devel
 
