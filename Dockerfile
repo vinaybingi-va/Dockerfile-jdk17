@@ -1,9 +1,9 @@
 
 FROM quay.vapo.va.gov/vapo_tst_images/ubi8
 
-RUN yum install nano && yum clean all
+RUN yum install -y nano && yum clean all
 
-RUN yum install java-11-openjdk-devel
+RUN yum install -y java-11-openjdk-devel
 
 # Maven installation
 RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz --no-check-certificate && \
