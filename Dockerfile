@@ -12,12 +12,9 @@ RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.
 RUN tar -zxvf apache-maven-3.8.8-bin.tar.gz --strip-components 1 -C /usr/local/maven
 ENV PATH=$PATH:/usr/local/maven/bin
 
-RUN mkdir app
+COPY ./project /app/project/
+
 RUN chmod -R 777 /app
-
-WORKDIR /app
-
-RUN mvn archetype:generate -B -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1 -DgroupId=com.company -DartifactId=project -Dversion=1.0-SNAPSHOT -Dpackage=com.company.project
 
 WORKDIR /app/project
 
