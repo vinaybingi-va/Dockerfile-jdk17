@@ -15,8 +15,12 @@ ENV PATH=$PATH:/usr/local/maven/bin
 RUN mkdir app
 RUN chmod -R 777 /app
 
-WORKDIR app
+WORKDIR /app
 
-RUN mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4
+RUN mvn archetype:generate -B -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1 -DgroupId=com.company -DartifactId=project -Dversion=1.0-SNAPSHOT -Dpackage=com.company.project
+
+WORKDIR /app/project
+
+RUN mvn package
 
 CMD tail -f /dev/null
